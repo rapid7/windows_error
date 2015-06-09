@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe WindowsError::ErrorCode do
 
-  subject(:error_code) { described_class.new(value,description) }
+  subject(:error_code) { described_class.new(name,value,description) }
+  let(:name) { "STATUS_TIMEOUT" }
   let(:value) { 0x00000102 }
   let(:description) { "The given Timeout interval expired." }
 
@@ -10,7 +11,7 @@ describe WindowsError::ErrorCode do
     let(:value) { "Bogus" }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(value,description)}.to raise_error ArgumentError,"Invalid Error Code Value!"
+      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Code Value!"
     end
   end
 
@@ -18,7 +19,7 @@ describe WindowsError::ErrorCode do
     let(:description) { 42 }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(value,description)}.to raise_error ArgumentError,"Invalid Error Description!"
+      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Description!"
     end
   end
 
@@ -26,8 +27,28 @@ describe WindowsError::ErrorCode do
     let(:description) { '' }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(value,description)}.to raise_error ArgumentError,"Invalid Error Description!"
+      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Description!"
     end
+  end
+
+  context 'with a non-string name' do
+    let(:name) { 42 }
+
+    it 'will raise an ArgumentError' do
+      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Name!"
+    end
+  end
+
+  context 'with an empty string name' do
+    let(:name) { '' }
+
+    it 'will raise an ArgumentError' do
+      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Name!"
+    end
+  end
+
+  it 'sets #name based on the initializer' do
+    expect(error_code.name).to eq name
   end
 
   it 'sets #value based on the initializer' do
@@ -59,8 +80,8 @@ describe WindowsError::ErrorCode do
     end
 
     context 'when passed another error code' do
-      let(:matching_error_code) { described_class.new(value,description) }
-      let(:other_error_code) { described_class.new(42,description) }
+      let(:matching_error_code) { described_class.new(name,value,description) }
+      let(:other_error_code) { described_class.new(name,42,description) }
 
       it 'returns true when the values match' do
         expect(error_code == matching_error_code).to eq true

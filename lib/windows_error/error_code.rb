@@ -6,14 +6,19 @@ module WindowsError
   class ErrorCode
     # @return [String] the description of the error the code represents
     attr_reader :description
+    # @return [String] the name of the error code
+    attr_reader :name
     # @return [Fixnum] the error code that was given as a return value
     attr_reader :value
 
-    def initialize(value,description)
+    def initialize(name,value,description)
+      raise ArgumentError, "Invalid Error Name!" unless name.kind_of? String and !(name.empty?)
       raise ArgumentError, "Invalid Error Code Value!" unless value.kind_of? Fixnum
       raise ArgumentError, "Invalid Error Description!" unless description.kind_of? String and !(description.empty?)
+      @name = name
       @value = value
       @description = description
+      @name.freeze
       @value.freeze
       @description.freeze
       self.freeze
