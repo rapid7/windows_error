@@ -3,8 +3,8 @@ require 'spec_helper'
 describe WindowsError::ErrorCode do
 
   subject(:error_code) { described_class.new(value,description) }
-  let(:value) { 0x00 }
-  let(:description) { "The operation completed successfully." }
+  let(:value) { 0x00000102 }
+  let(:description) { "The given Timeout interval expired." }
 
   context 'with a non-number value' do
     let(:value) { "Bogus" }
@@ -37,5 +37,40 @@ describe WindowsError::ErrorCode do
   it 'sets #description based on the initializer' do
     expect(error_code.description).to eq description
   end
+
+  describe '#==' do
+    let(:invalid_str) { "foo" }
+
+    it 'raises an ArgumentError for an invalid comparison' do
+      expect{ error_code == invalid_str}.to raise_error ArgumentError, "Cannot compare a WindowsError::ErrorCode to a #{invalid_str.class}"
+    end
+
+    context 'when passed a Fixnum' do
+      let(:fixnum_value) { 258 }
+      let(:other_fixnum) { 42 }
+
+      it 'returns true if equal to the #value' do
+        expect(error_code == fixnum_value).to eq true
+      end
+
+      it 'returns false if not equal to the #value' do
+        expect(error_code == other_fixnum).to eq false
+      end
+    end
+
+    context 'when passed another error code' do
+      let(:matching_error_code) { described_class.new(value,description) }
+      let(:other_error_code) { described_class.new(42,description) }
+
+      it 'returns true when the values match' do
+        expect(error_code == matching_error_code).to eq true
+      end
+
+      it 'returns false when the values do not match' do
+        expect(error_code == other_error_code).to eq false
+      end
+    end
+  end
+
 
 end

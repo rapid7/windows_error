@@ -14,6 +14,19 @@ module WindowsError
       raise ArgumentError, "Invalid Error Description!" unless description.kind_of? String and !(description.empty?)
       @value = value
       @description = description
+      @value.freeze
+      @description.freeze
+      self.freeze
+    end
+
+    def ==(other_object)
+      if other_object.kind_of? self.class
+        self.value == other_object.value
+      elsif other_object.kind_of? Fixnum
+        self.value == other_object
+      else
+        raise ArgumentError, "Cannot compare a #{self.class} to a #{other_object.class}"
+      end
     end
   end
 end
