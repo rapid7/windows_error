@@ -2,7 +2,7 @@ module WindowsError
 
   # This is the core class that represents a Windows Error Code.
   # It maps the error code value to the description of the error
-  # according to Microsoft documentation found at https://msdn.microsoft.com/en-us/library/cc231196.aspx
+  # according to Microsoft documentation found at [Windows Error Codes](https://msdn.microsoft.com/en-us/library/cc231196.aspx)
   class ErrorCode
     # @return [String] the description of the error the code represents
     attr_reader :description
