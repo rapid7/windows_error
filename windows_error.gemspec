@@ -8,10 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = WindowsError::VERSION
   spec.authors       = ["David Maloney"]
   spec.email         = ["DMaloney@rapid7.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Provides a way to look up Windows NTSTATUS and Win32 Error Codes}
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = "BSD"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
