@@ -11,6 +11,10 @@ module WindowsError
     # @return [Fixnum] the error code that was given as a return value
     attr_reader :value
 
+    # @param [String] the 'name' of the error code (i.e STATUS_SUCCESS)
+    # @param [Fixnum] the return value that represents that error
+    # @param [String] the verbose description of the error
+    # @raise [ArgumentError] if any of the parameters are of an invalid type
     def initialize(name,value,description)
       raise ArgumentError, "Invalid Error Name!" unless name.kind_of? String and !(name.empty?)
       raise ArgumentError, "Invalid Error Code Value!" unless value.kind_of? Fixnum
@@ -24,6 +28,12 @@ module WindowsError
       self.freeze
     end
 
+    # Overirdes the equality test for ErrorCodes. Equality is
+    # always tested against the #value of the error code.
+    #
+    # @param [Object] the object to test equality against
+    # @raise [ArgumentError] if the other object is not either another ErrorCode or a Fixnum
+    # @return [Boolean] whether the equality test passed
     def ==(other_object)
       if other_object.kind_of? self.class
         self.value == other_object.value
