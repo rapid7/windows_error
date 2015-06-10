@@ -5403,9 +5403,5 @@ module WindowsError
     # (0xC03A0018) The chain of virtual hard disks is corrupted. A differencing disk is indicated in its own parent chain.
     STATUS_VHD_DIFFERENCING_CHAIN_CYCLE_DETECTED = WindowsError::ErrorCode.new("STATUS_VHD_DIFFERENCING_CHAIN_CYCLE_DETECTED",0xC03A0018,"The chain of virtual hard disks is corrupted. A differencing disk is indicated in its own parent chain.")
 
-
-
-
   end
-
 end
