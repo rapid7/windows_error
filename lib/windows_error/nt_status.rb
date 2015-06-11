@@ -8,7 +8,7 @@ module WindowsError
     # Returns all the {WindowsError::ErrorCode} objects that match
     # the return value supplied.
     #
-    # @param [Fixnum] the return value you want the error code for
+    # @param [Fixnum] retval the return value you want the error code for
     # @raise [ArgumentError] if something other than a Fixnum is supplied
     # @return [Array<WindowsError::ErrorCode>] all NTStatus ErrorCodes that matched
     def self.find_by_retval(retval)
