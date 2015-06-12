@@ -1,6 +1,8 @@
 # WindowsError
+[![Gem Version](https://badge.fury.io/rb/windows_error.svg)](http://badge.fury.io/rb/windows_error)
 [![Build Status](https://travis-ci.org/rapid7/windows_error.svg)](https://travis-ci.org/rapid7/windows_error)
 [![Code Climate](https://codeclimate.com/github/rapid7/windows_error/badges/gpa.svg)](https://codeclimate.com/github/rapid7/windows_error)
+
 
 The WindowsError gem provides an easily accessible reference for standard Windows API Error Codes. It allows you to do comparisons as well as direct lookups of error codes to translate the numerical value returned by the API, into a meaningful and human readable message. WindowsError currently supports [NTSTATUS](https://msdn.microsoft.com/en-us/library/cc231200.aspx) and [Win32 Error Codes](https://msdn.microsoft.com/en-us/library/cc231199.aspx). See [Windows Error Codes](https://msdn.microsoft.com/en-us/library/cc231196.aspx) for more details on all Windows Error Codes.
 
