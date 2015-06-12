@@ -117,6 +117,3 @@ Perform these steps prior to pushing to DESTINATION or the build will be broke o
 - [ ] `git commit -a`
 - [ ] `git push origin DESTINATION`
 ```
-
-To update the [CHANGELOG.md](CHANGELOG.md) with the merged changes or release the merged code see
-[RELEASING.md](RELEASING.md)
