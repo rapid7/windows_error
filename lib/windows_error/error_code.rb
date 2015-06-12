@@ -44,4 +44,6 @@ module WindowsError
       end
     end
   end
+
+  alias :=== :==
 end
