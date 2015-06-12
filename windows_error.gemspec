@@ -9,7 +9,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["David Maloney"]
   spec.email         = ["DMaloney@rapid7.com"]
   spec.summary       = %q{Provides a way to look up Windows NTSTATUS and Win32 Error Codes}
-  spec.homepage      = ""
+  spec.description   = %q{The WindowsError gem provides an easily accessible reference for
+                          standard Windows API Error Codes. It allows you to do comparisons
+                          as well as direct lookups of error codes to translate the numerical
+                          value returned by the API, into a meaninful and humand readable message.}
+  spec.homepage      = "https://github.com/rapid7/windows_error"
   spec.license       = "BSD"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,10 +22,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "rspec"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "yard"
-  spec.add_development_dependency "simplecov"
   spec.add_development_dependency "fivemat"
 
 end
