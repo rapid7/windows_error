@@ -1,11 +1,20 @@
-require 'simplecov'
 require 'pathname'
+require 'simplecov'
+require 'coveralls'
 
-SimpleCov.start do
-  add_filter '/spec/'
-  add_filter '/config/'
-  add_filter '/vendor/'
-end if ENV["COVERAGE"]
+if ENV['TRAVIS'] == 'true'
+  # don't generate local report as it is inaccessible on travis-ci, which is
+  # why coveralls is being used.
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+else
+  SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+end
+
+# SimpleCov.start do
+#   add_filter '/spec/'
+#   add_filter '/config/'
+#   add_filter '/vendor/'
+# end if ENV["COVERAGE"]
 
 require 'rspec'
 require 'windows_error'
