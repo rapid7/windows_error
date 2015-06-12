@@ -12,9 +12,10 @@ Gem::Specification.new do |spec|
   spec.description   = %q{The WindowsError gem provides an easily accessible reference for
                           standard Windows API Error Codes. It allows you to do comparisons
                           as well as direct lookups of error codes to translate the numerical
-                          value returned by the API, into a meaninful and humand readable message.}
+                          value returned by the API, into a meaningful and human readable message.}
   spec.homepage      = "https://github.com/rapid7/windows_error"
   spec.license       = "BSD"
+  spec.required_ruby_version = '>= 2.1'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
