@@ -1,6 +1,6 @@
 # WindowsError
 
-TODO: Write a gem description
+The WindowsError gem provides an easily accessible reference for standard Windows API Error Codes. It allows you to do comparisons as well as direct lookups of error codes to translate the numerical value returned by the API, into a meaninful and humand readable message. WindowsError currently supports [NTSTATUS](https://msdn.microsoft.com/en-us/library/cc231200.aspx) and [Win32 Error Codes](https://msdn.microsoft.com/en-us/library/cc231199.aspx). See [Windows Error Codes](https://msdn.microsoft.com/en-us/library/cc231196.aspx) for more details on all Windows Error Codes.
 
 ## Installation
 
@@ -20,7 +20,54 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+###Looking up an NTSTATUS code
+Code:
+
+```ruby
+require 'windows_error/nt_status'
+return_value_from_api_call = 0x00000000
+error_codes = WindowsError::NTStatus.find_by_retval(return_value_from_api_call)
+error_codes.each do |error_code|
+	puts "#{error_code.name}: #{error_code.description}"
+end
+```
+
+Output:
+
+```
+STATUS_SUCCESS: The operation completed successfully.
+STATUS_WAIT_0: The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled state.
+```
+
+###Looking up an Win32 code
+Code:
+
+```ruby
+require 'windows_error/win32'
+return_value_from_api_call = 0x00000002
+error_codes = WindowsError::Win32.find_by_retval(return_value_from_api_call)
+error_codes.each do |error_code|
+	puts "#{error_code.name}: #{error_code.description}"
+end
+```
+
+Output:
+
+```
+ERROR_FILE_NOT_FOUND: The system cannot find the file specified.
+```
+
+###Testing Equality
+
+```ruby
+require 'windows_error/win32'
+return_value_from_api_call = 0x00000002
+return_value_from_api_call == WindowsError::Win32::ERROR_FILE_NOT_FOUND #=> true
+WindowsError::Win32::ERROR_FILE_NOT_FOUND == return_value_from_api_call #=> true
+0x00000001 == WindowsError::Win32::ERROR_FILE_NOT_FOUND #=> false
+```
+
+
 
 ## Contributing
 
