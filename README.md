@@ -39,7 +39,7 @@ STATUS_SUCCESS: The operation completed successfully.
 STATUS_WAIT_0: The caller specified WaitAny for WaitType and one of the dispatcher objects in the Object array has been set to the signaled state.
 ```
 
-###Looking up an Win32 code
+###Looking up a Win32 code
 Code:
 
 ```ruby
