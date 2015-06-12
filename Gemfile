@@ -10,4 +10,6 @@ group :test do
   gem 'rspec', '~> 3.0'
   # Coverage reports
   gem 'simplecov', require: false
+
+  gem 'metasploit-version'
 end
