@@ -57,10 +57,6 @@ Push your branch to your fork on gitub: `git push TYPE/ISSUE/SUMMARY`
 
 - [ ] `bundle install`
 
-## `rake cucumber`
-- [ ] `rake cucumber`
-- [ ] VERIFY no failures
-
 ## `rake spec`
 - [ ] `rake spec`
 - [ ] VERIFY no failures
