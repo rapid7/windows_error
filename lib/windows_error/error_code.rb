@@ -15,10 +15,10 @@ module WindowsError
     # @param [Fixnum] value the return value that represents that error
     # @param [String] description the verbose description of the error
     # @raise [ArgumentError] if any of the parameters are of an invalid type
-    def initialize(name,value,description)
-      raise ArgumentError, "Invalid Error Name!" unless name.kind_of? String and !(name.empty?)
-      raise ArgumentError, "Invalid Error Code Value!" unless value.kind_of? Fixnum
-      raise ArgumentError, "Invalid Error Description!" unless description.kind_of? String and !(description.empty?)
+    def initialize(name, value, description)
+      raise ArgumentError, 'Invalid Error Name!' unless name.kind_of? String and !(name.empty?)
+      raise ArgumentError, 'Invalid Error Code Value!' unless value.kind_of? Fixnum
+      raise ArgumentError, 'Invalid Error Description!' unless description.kind_of? String and !(description.empty?)
       @name = name
       @value = value
       @description = description

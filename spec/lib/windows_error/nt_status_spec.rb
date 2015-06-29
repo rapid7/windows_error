@@ -6,7 +6,7 @@ describe WindowsError::NTStatus do
   describe '#find_by_retval' do
 
     it 'raises an argument error when passed an invalid value' do
-      expect{ WindowsError::NTStatus.find_by_retval("foo") }.to raise_error ArgumentError,"Invalid Return Code!"
+      expect{ WindowsError::NTStatus.find_by_retval('foo') }.to raise_error ArgumentError, 'Invalid Return Code!'
     end
 
     it 'returns an array with the error_codes for that return value' do

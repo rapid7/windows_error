@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe WindowsError::ErrorCode do
 
-  subject(:error_code) { described_class.new(name,value,description) }
-  let(:name) { "STATUS_TIMEOUT" }
+  subject(:error_code) { described_class.new(name, value, description) }
+  let(:name) { 'STATUS_TIMEOUT' }
   let(:value) { 0x00000102 }
-  let(:description) { "The given Timeout interval expired." }
+  let(:description) { 'The given Timeout interval expired.' }
 
   context 'with a non-number value' do
-    let(:value) { "Bogus" }
+    let(:value) { 'Bogus' }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Code Value!"
+      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Code Value!'
     end
   end
 
@@ -19,7 +19,7 @@ describe WindowsError::ErrorCode do
     let(:description) { 42 }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Description!"
+      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Description!'
     end
   end
 
@@ -27,7 +27,7 @@ describe WindowsError::ErrorCode do
     let(:description) { '' }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Description!"
+      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Description!'
     end
   end
 
@@ -35,7 +35,7 @@ describe WindowsError::ErrorCode do
     let(:name) { 42 }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Name!"
+      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Name!'
     end
   end
 
@@ -43,7 +43,7 @@ describe WindowsError::ErrorCode do
     let(:name) { '' }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(name,value,description)}.to raise_error ArgumentError,"Invalid Error Name!"
+      expect{described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Name!'
     end
   end
 
@@ -60,10 +60,10 @@ describe WindowsError::ErrorCode do
   end
 
   describe '#==' do
-    let(:invalid_str) { "foo" }
+    let(:invalid_str) { 'foo' }
 
     it 'raises an ArgumentError for an invalid comparison' do
-      expect{ error_code == invalid_str}.to raise_error ArgumentError, "Cannot compare a WindowsError::ErrorCode to a #{invalid_str.class}"
+      expect{ error_code == invalid_str }.to raise_error ArgumentError, "Cannot compare a WindowsError::ErrorCode to a #{invalid_str.class}"
     end
 
     context 'when passed a Fixnum' do
@@ -80,8 +80,8 @@ describe WindowsError::ErrorCode do
     end
 
     context 'when passed another error code' do
-      let(:matching_error_code) { described_class.new(name,value,description) }
-      let(:other_error_code) { described_class.new(name,42,description) }
+      let(:matching_error_code) { described_class.new(name, value, description) }
+      let(:other_error_code) { described_class.new(name, 42, description) }
 
       it 'returns true when the values match' do
         expect(error_code == matching_error_code).to eq true
@@ -92,6 +92,4 @@ describe WindowsError::ErrorCode do
       end
     end
   end
-
-
 end
