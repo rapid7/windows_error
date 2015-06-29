@@ -2,7 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/windows_error.svg)](http://badge.fury.io/rb/windows_error)
 [![Build Status](https://travis-ci.org/rapid7/windows_error.svg)](https://travis-ci.org/rapid7/windows_error)
 [![Code Climate](https://codeclimate.com/github/rapid7/windows_error/badges/gpa.svg)](https://codeclimate.com/github/rapid7/windows_error)
-[![Coverage Status](https://coveralls.io/repos/rapid7/windows_error/badge.png)](https://coveralls.io/r/rapid7/windows_error)
+[![Coverage Status](https://coveralls.io/repos/rapid7/windows_error/badge.svg?branch=master)](https://coveralls.io/r/rapid7/windows_error?branch=master)
 [![PullReview stats](https://www.pullreview.com/github/rapid7/windows_error/badges/master.svg?)](https://www.pullreview.com/github/rapid7/windows_error/reviews/master)
 
 
