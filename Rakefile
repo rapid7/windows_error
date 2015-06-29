@@ -16,3 +16,5 @@ YARD::Rake::YardocTask.new do |t|
     'README.md', 'LICENSE.txt'
   ]
 end
+
+task :default => :spec
