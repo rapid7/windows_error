@@ -11,7 +11,7 @@ describe WindowsError::ErrorCode do
     let(:value) { 'Bogus' }
 
     it 'will raise an ArgumentError' do
-      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Code Value!'
+      expect { described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Code Value!'
     end
   end
 
@@ -19,7 +19,7 @@ describe WindowsError::ErrorCode do
     let(:description) { 42 }
 
     it 'will raise an ArgumentError' do
-      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Description!'
+      expect { described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Description!'
     end
   end
 
@@ -27,7 +27,7 @@ describe WindowsError::ErrorCode do
     let(:description) { '' }
 
     it 'will raise an ArgumentError' do
-      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Description!'
+      expect { described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Description!'
     end
   end
 
@@ -35,7 +35,7 @@ describe WindowsError::ErrorCode do
     let(:name) { 42 }
 
     it 'will raise an ArgumentError' do
-      expect{ described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Name!'
+      expect { described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Name!'
     end
   end
 
@@ -43,7 +43,7 @@ describe WindowsError::ErrorCode do
     let(:name) { '' }
 
     it 'will raise an ArgumentError' do
-      expect{described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Name!'
+      expect { described_class.new(name, value, description) }.to raise_error ArgumentError, 'Invalid Error Name!'
     end
   end
 
@@ -63,7 +63,7 @@ describe WindowsError::ErrorCode do
     let(:invalid_str) { 'foo' }
 
     it 'raises an ArgumentError for an invalid comparison' do
-      expect{ error_code == invalid_str }.to raise_error ArgumentError, "Cannot compare a WindowsError::ErrorCode to a #{invalid_str.class}"
+      expect { error_code == invalid_str }.to raise_error ArgumentError, "Cannot compare a WindowsError::ErrorCode to a #{invalid_str.class}"
     end
 
     context 'when passed a Fixnum' do
