@@ -8,11 +8,11 @@ module WindowsError
     # Returns all the {WindowsError::ErrorCode} objects that match
     # the return value supplied.
     #
-    # @param [Fixnum] retval the return value you want the error code for
-    # @raise [ArgumentError] if something other than a Fixnum is supplied
+    # @param [Integer] retval the return value you want the error code for
+    # @raise [ArgumentError] if something other than a Integer is supplied
     # @return [Array<WindowsError::ErrorCode>] all Win32 ErrorCodes that matched
     def self.find_by_retval(retval)
-      raise ArgumentError, "Invalid Return Code!" unless retval.kind_of? Fixnum
+      raise ArgumentError, "Invalid Return Code!" unless retval.kind_of? Integer
       error_codes = []
       self.constants.each do |constant_name|
         error_code = self.const_get(constant_name)

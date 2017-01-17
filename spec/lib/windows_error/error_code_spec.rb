@@ -66,7 +66,7 @@ describe WindowsError::ErrorCode do
       expect { error_code == invalid_str }.to raise_error ArgumentError, "Cannot compare a WindowsError::ErrorCode to a #{invalid_str.class}"
     end
 
-    context 'when passed a Fixnum' do
+    context 'when passed a Integer' do
       let(:fixnum_value) { 258 }
       let(:other_fixnum) { 42 }
 
