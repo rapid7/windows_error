@@ -92,4 +92,11 @@ describe WindowsError::ErrorCode do
       end
     end
   end
+
+  describe '#to_s' do
+    it 'outputs all of the relvant data in one useful string' do
+      expect(error_code.to_s).to eq '(0x00000102) STATUS_TIMEOUT: The given Timeout interval expired.'
+    end
+  end
+  
 end

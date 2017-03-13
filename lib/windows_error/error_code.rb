@@ -43,7 +43,14 @@ module WindowsError
         raise ArgumentError, "Cannot compare a #{self.class} to a #{other_object.class}"
       end
     end
+
+    alias :=== :==
+
+    def to_s
+      code = sprintf "%08x", self.value
+      "(0x#{code}) #{self.name}: #{self.description}"
+    end
   end
 
-  alias :=== :==
+
 end
