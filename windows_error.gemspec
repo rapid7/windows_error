@@ -15,7 +15,8 @@ Gem::Specification.new do |spec|
                           value returned by the API, into a meaningful and human readable message.}
   spec.homepage      = "https://github.com/rapid7/windows_error"
   spec.license       = "BSD"
-  spec.required_ruby_version = '>= 2.1'
+
+  spec.required_ruby_version = '>= 2.2.0'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
