@@ -39,6 +39,8 @@ module WindowsError
         self.value == other_object.value
       elsif other_object.kind_of? Integer
         self.value == other_object
+      elsif other_object.nil?
+        false
       else
         raise ArgumentError, "Cannot compare a #{self.class} to a #{other_object.class}"
       end
