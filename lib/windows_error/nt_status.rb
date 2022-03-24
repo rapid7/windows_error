@@ -14,7 +14,7 @@ module WindowsError
     def self.find_by_retval(retval)
       raise ArgumentError, "Invalid Return Code!" unless retval.kind_of? Integer
       error_codes = []
-      self.constants.each do |constant_name|
+      self.constants.sort.each do |constant_name|
         error_code = self.const_get(constant_name)
         if error_code == retval
           error_codes << error_code
