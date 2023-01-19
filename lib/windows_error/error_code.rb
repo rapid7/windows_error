@@ -28,7 +28,7 @@ module WindowsError
       self.freeze
     end
 
-    # Overirdes the equality test for ErrorCodes. Equality is
+    # Overrides the equality test for ErrorCodes. Equality is
     # always tested against the #value of the error code.
     #
     # @param [Object] other_object the object to test equality against
