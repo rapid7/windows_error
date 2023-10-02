@@ -1,0 +1,14 @@
+---
+info:
+  title: Windows Error
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/windows_error
+  x-cortex-tag: windows-error
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: metasploit
+openapi: 3.0.1
+servers:
+- url: "/"
