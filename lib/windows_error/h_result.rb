@@ -5,16 +5,23 @@ module WindowsError
   # for more details on this particular set of error codes.
   module HResult
 
+    require 'windows_error'
     require 'windows_error/h_result/facility'
+    require 'windows_error/win32'
 
     # Returns all the {HResultCode} objects that match
     # the return value supplied.
     #
     # @param [Integer] retval the return value you want the error code for
     # @raise [ArgumentError] if something other than a Integer is supplied
-    # @return [Array<HResultCode>] all Win32 ErrorCodes that matched
+    # @return [Array<WindowsError::ErrorCode>] all ErrorCodes that matched
     def self.find_by_retval(retval)
       raise ArgumentError, "Invalid value!" unless retval.kind_of? Integer
+
+      if Facility.find_by_h_result(retval) == Facility::FACILITY_WIN32.value
+        return Win32.find_by_retval(retval & 0xffff)
+      end
+
       error_codes = []
       self.constants.sort.each do |constant_name|
         error_code = self.const_get(constant_name)
