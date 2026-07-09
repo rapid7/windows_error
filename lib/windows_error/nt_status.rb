@@ -5,6 +5,8 @@ module WindowsError
   # more details on this particular set of error codes.
   module NTStatus
 
+    require 'windows_error'
+
     # Returns all the {WindowsError::ErrorCode} objects that match
     # the return value supplied.
     #

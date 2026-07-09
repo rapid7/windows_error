@@ -36,10 +36,19 @@ module WindowsError
 
         self.constants.sort.each do |constant_name|
           facility_code = self.const_get(constant_name)
+          next unless facility_code.kind_of?(FacilityCode)
+
           if facility_code.value == retval
             return facility_code
           end
         end
+        nil
+      end
+
+      def self.find_by_h_result(retval)
+        raise ArgumentError, "Invalid value!" unless retval.kind_of? Integer
+
+        self.find_by_code((retval >> 16) & 0x1fff)
       end
 
       # (0x0000) The default facility code.
